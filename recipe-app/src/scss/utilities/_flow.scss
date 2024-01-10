@@ -1,0 +1,19 @@
+.flow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1rem);
+}
+
+.flow > :nth-child(2) {
+  margin-block-end: auto;
+}
+
+.flow-small {
+  margin-block-start: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}

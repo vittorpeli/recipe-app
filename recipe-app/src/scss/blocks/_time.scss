@@ -1,0 +1,31 @@
+.time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  input {
+    text-align: center;
+    color: get-color('secondary');
+    background-color: get-color('primary');
+    border: 1px solid get-color('secondary-shade');
+    max-width: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    
+    @extend .radius;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+}

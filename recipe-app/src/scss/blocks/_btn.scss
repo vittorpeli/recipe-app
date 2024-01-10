@@ -1,0 +1,25 @@
+.btn {
+  @extend .radius;
+
+  font: inherit;
+  color: get-color('primary');
+  display: inline-block;
+  line-height: 1;
+  text-decoration: none;
+  border: 1px solid get-color('secondary');
+  background: get-color('secondary');
+  padding: 0.6rem 1.5rem;
+  position: relative;
+  cursor: pointer;
+
+  @include apply-utility('weight', 'bold');
+
+  &:hover {
+    background-color: get-color('secondary-shade');
+    color: get-color('primary-glare');
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

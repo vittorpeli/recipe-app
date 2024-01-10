@@ -1,0 +1,21 @@
+.menu {
+  display: inline-grid;
+  align-items: center;
+  grid-template-columns: max-content 50px;
+  grid-gap: get-size('300');
+
+  a {
+    font-weight: bold;
+    padding-bottom: 0.1rem;
+    border-bottom: 1px solid get-color('primary');
+    width: fit-content;
+  }
+
+  a:hover {
+    color: get-color('primary-glare');
+  }
+
+  a:focus {
+    color: get-color('primary-glare');
+  }
+}

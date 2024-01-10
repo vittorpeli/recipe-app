@@ -1,0 +1,27 @@
+.select {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid get-color('secondary-shade');
+    color: get-color('secondary');
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  option {
+    color: get-color('secondary');
+    background: get-color('primary');
+    
+    @extend .radius;
+  }
+}

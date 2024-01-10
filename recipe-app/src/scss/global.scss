@@ -1,0 +1,61 @@
+@import 'config';
+
+@import '../../node_modules/gorko/gorko.scss';
+
+@import 'reset';
+
+// Global CSS starts
+body {
+  line-height: 1.5;
+  overflow-x: hidden;
+  padding-bottom: get-size('600');
+  background-color: get-color('primary');
+
+  @include apply-utility('weight', 'medium');
+}
+
+#root {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: get-size('700');
+}
+
+h2,
+h3 {
+  font-size: get-size('600');
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
+// Utilities
+@import 'utilities/flow';
+@import 'utilities/radius';
+@import 'utilities/wrapper';
+@import 'utilities/center';
+
+// Blocks
+@import 'blocks/navbar';
+@import 'blocks/menu';
+@import 'blocks/recipe-card';
+@import 'blocks/btn';
+@import 'blocks/select';
+@import 'blocks/time';
