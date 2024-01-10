@@ -8,6 +8,6 @@
   },
   "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon server/index.js"
   }
 }
