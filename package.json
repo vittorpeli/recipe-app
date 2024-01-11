@@ -10,6 +10,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon index.js",
-    "start_dev": "concurrently \"nodemon index.js\" \"npm run dev\""
+    "start_client": "npm run dev --prefix recipe-app",
+    "start_dev": "concurrently \"nodemon index.js\" \"npm run start_client\""
   }
 }

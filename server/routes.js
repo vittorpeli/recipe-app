@@ -3,8 +3,8 @@ import 'dotenv/config';
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
-     apiKey: process.env.API_KEY 
-});
+  apiKey: process.env.API_KEY
+})
 
 const route = Router(); 
 
@@ -12,7 +12,7 @@ route.get("/", (req, res) => {
   res.send("Hello World")
 })
 
-route.post("/chat/completions", async(req, res) => {
+route.post("/generate", async(req, res) => {
   const { prompt, functions, functionCall } = req.body;
 
   try {

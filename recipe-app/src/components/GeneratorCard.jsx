@@ -1,12 +1,35 @@
-
+import { useState } from "react"
 
 export const GeneratorCard = () => {
+  const [ingredients, setIngredients] = useState('');
+  const [condiments, setCondiments] = useState('');
+  const [cookTime, setCookTime] = useState('');
+  const [mealType, setMealType] = useState('');
+  const [recipe, setRecipe] = useState('');
+  const [generatedText, setGeneratedText] = useState('');
+
   let typeOfMeal = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert']
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    //Todo: Make API request to backend
+
+    //Mock Data
+    const mockData = {
+      ingredients,
+      condiments,
+      cookTime,
+      mealType,
+      generatedText: 'Mock recipe content',
+    };
+
+    setGeneratedText(mockData.generatedText);
+  }
 
   return (
     <div className="recipe-card | flow wrapper radius center | color-secondary">
       <h2>CHEF</h2>
-      <form className="recipe-card__form">
+      <form className="recipe-card__form" onSubmit={handleSubmit}>
         <div className="flow-small">
           <label htmlFor="ingredients">Enter Ingredients</label>
           <input id="ingredients" type="text" placeholder="Ingredients..."required/>
@@ -28,8 +51,14 @@ export const GeneratorCard = () => {
             })}
           </select>
         </div>
-        <button className="btn">Generate</button>
+        <button type="submit" className="btn">Generate</button>
       </form>
+      { generatedText && (
+        <div className="recipe-info">
+          <h3>Recipe Name</h3>
+          <p>{generatedText}</p>
+        </div>
+      )}
     </div>
   )
 }
