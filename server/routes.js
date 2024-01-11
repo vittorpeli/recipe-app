@@ -32,6 +32,10 @@ route.post("/generate", async(req, res) => {
   }
 })
 
+route.get("/generate", (req, res) => {
+  res.send(req.body);
+})
+
 export default route;
 
 //   const response = openai.createChatCompletion({
