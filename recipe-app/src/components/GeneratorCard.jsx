@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Modal } from "./Modal";
 
 export const GeneratorCard = () => {
   const [ingredients, setIngredients] = useState('');
@@ -6,8 +7,14 @@ export const GeneratorCard = () => {
   const [cookTime, setCookTime] = useState('');
   const [mealType, setMealType] = useState('');
   const [generatedText, setGeneratedText] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [modalData, setModalData] = useState(null);
 
   let typeOfMeal = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert']
+
+  const closeModal = () => {
+    setShowModal(false);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,11 +50,26 @@ export const GeneratorCard = () => {
       const responseData = await response.json();
       
       setGeneratedText(responseData.generatedText)
+
+      const newModalData = {
+        items: responseData.functions?.instructions?.items || [],
+        text: responseData.functions?.instructions?.items || '',
+        btnContent: 'Save',
+        action1: closeModal,
+        action2: saveRecipe,
+      }
+      setModalData(newModalData);
+
+      setShowModal(true);
     } catch (error) {
       console.error('Error calling API:', error.message);
       // Handle error, show error message, etc.
     }
   };
+
+  const saveRecipe = () => {
+    
+  }
 
   useEffect(() => {
     console.log('Generated Text:', generatedText)
@@ -102,10 +124,7 @@ export const GeneratorCard = () => {
         <button type="submit" className="btn">Generate</button>
       </form>
       { generatedText && (
-        <div className="recipe-info">
-          <h3>Recipe Name</h3>
-          <p>{generatedText}</p>
-        </div>
+        <Modal {...modalData}/>
       )}
     </div>
   )

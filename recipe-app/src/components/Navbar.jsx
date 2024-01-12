@@ -7,7 +7,7 @@ export const Navbar = () => {
           <h2>Chef.AI</h2>
           <div className="menu">
             <a href="/">Home</a>
-            <a href="/recipes">Recipes</a>
+            {/* <a href="/recipes">Recipes</a> */}
           </div>
         </div>
       </div>

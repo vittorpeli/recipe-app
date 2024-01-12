@@ -20,9 +20,12 @@ export const Modal = (props) => {
         <p>{props.text}</p>
       </div>
 
-      {/* Modal Button */}
+      {/* Modal Buttons */}
       <div className="modal__btn">
-        <button onClick={props.action}>
+        <button className="btn" data-type="link" onClick={props.action1}>
+          Close Modal
+        </button>
+        <button className="btn" onClick={props.action2}>
           {props.btnContent}
         </button>
       </div>
