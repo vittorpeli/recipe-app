@@ -23,7 +23,7 @@ export const GeneratorCard = () => {
 
     try {
       // API request to backend
-      const response = await fetch('http://localhost:3001/api/generate', {
+      const response = await fetch('/api/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,8 +50,8 @@ export const GeneratorCard = () => {
       }
 
       const responseData = await response.json();
-      // Display recipe information (you can navigate to a new page or show a modal)
-      console.log('Generated Text:', responseData.generatedText);
+      
+      setGeneratedText(responseData.generatedText)
     } catch (error) {
       console.error('Error calling API:', error.message);
       // Handle error, show error message, etc.
