@@ -22,4 +22,17 @@
   &:active {
     transform: scale(0.95);
   }
+
+  &[data-type="link"] {
+    color: get-color('secondary');
+    background: transparent;
+
+    &:hover {
+      color: get-color('secondary-shade');
+    }
+  
+    &:active {
+      transform: scale(0.95);
+    }
+  }
 }
