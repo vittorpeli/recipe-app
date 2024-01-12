@@ -9,15 +9,6 @@ export const GeneratorCard = () => {
 
   let typeOfMeal = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert']
 
-  // const convertToJSON = (prompt) => {
-  //   const jsonData = JSON.stringify([
-  //     {"role": "system", "content": "You are a helpful assistant"},
-  //     {"role": "user", "content": prompt}
-  //   ]);
-
-  //   return JSON.parse(jsonData);
-  // }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
