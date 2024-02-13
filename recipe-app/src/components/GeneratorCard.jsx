@@ -2,10 +2,14 @@ import { useEffect, useState } from "react"
 import { Modal } from "./Modal";
 import { Form } from "./Form";
 
+const apiURL = "http://localhost:3001/api/recipes"
+
 export const GeneratorCard = () => {
   const [showModal, setShowModal] = useState(false);
   const [items, setItems] = useState('');
   const [time, setTime] = useState(0);
+  const [name, setName] = useState('');
+  const [text, setText] = useState('');
 
   function closeModal() {
     setShowModal(false);
@@ -16,12 +20,23 @@ export const GeneratorCard = () => {
   }
 
   function handleSubmit(formData) {
-    console.log('Form Data:', formData)
+    fetch(apiURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+      .then(res => res.json())
+      .then(data => {
+        setName(data.name);
+        setItems(data.ingredients);
+        setTime(data.cookTime);
+        setText(data.text);
 
-    setItems(formData.ingredients);
-    setTime(formData.cookTime);
-
-    setShowModal(true);
+        setShowModal(true);
+      })
+      .catch((error) => {
+        console.error('Error generating recipe:', error);
+      })
   }
 
   return (
@@ -30,12 +45,12 @@ export const GeneratorCard = () => {
 
       <Form onSubmit={handleSubmit}/>
       
-      { showModal? (
+      { showModal ? (
         <Modal 
-          name="Carbonara"
+          name={name}
           items={items}
           time={time}
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod."
+          text={text}
           closeModal={closeModal}
           saveRecipe={saveRecipe}
         />
