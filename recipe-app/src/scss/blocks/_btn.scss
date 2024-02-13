@@ -7,6 +7,7 @@
   line-height: 1;
   text-decoration: none;
   border: 1px solid get-color('secondary');
+  outline: none;
   background: get-color('secondary');
   padding: 0.6rem 1.5rem;
   position: relative;
@@ -21,18 +22,5 @@
 
   &:active {
     transform: scale(0.95);
-  }
-
-  &[data-type="link"] {
-    color: get-color('secondary');
-    background: transparent;
-
-    &:hover {
-      color: get-color('secondary-shade');
-    }
-  
-    &:active {
-      transform: scale(0.95);
-    }
   }
 }

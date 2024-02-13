@@ -9,8 +9,7 @@
   },
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
-    "start_client": "npm run dev --prefix recipe-app",
-    "start_dev": "concurrently \"nodemon index.js\" \"npm run start_client\""
+    "dev:server": "nodemon index.js",
+    "dev:client": "vite ./recipe-app"
   }
 }
